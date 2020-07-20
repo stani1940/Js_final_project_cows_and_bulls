@@ -15,3 +15,15 @@ function shuffleArray(array) {
 
 let secret = shuffleArray(numbers).slice(0,4).join('');
 console.log(secret);
+// This is our click counter that tells you how many times you've guessed in the game.
+
+let clicks = 0;
+$("#submit").on("click",function() {
+    clicks++;
+    $("#guesses").text(clicks);
+});
+
+
+$("#start").on("click",function() {
+    return secret;
+});
