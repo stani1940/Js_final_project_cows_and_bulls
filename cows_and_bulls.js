@@ -25,6 +25,10 @@ $("#submit").on("click",function() {
 //add event of start button
 
 $("#start").on("click",function() {
+    $("#game").show();
+    $("#start").hide();
+    $("#submit").show();
+    $("#guesses").text("0");
     return secret;
 });
 // When you click the "Hide Rules" button, it hides the Rules form and shows the "Show Rules" button.
