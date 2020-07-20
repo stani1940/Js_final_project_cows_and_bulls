@@ -22,8 +22,15 @@ $("#submit").on("click",function() {
     clicks++;
     $("#guesses").text(clicks);
 });
-
+//add event of start button
 
 $("#start").on("click",function() {
     return secret;
+});
+// When you click the "Hide Rules" button, it hides the Rules form and shows the "Show Rules" button.
+
+$("#hide").on("click", function() {
+    $("#rulesForm").hide();
+    $("#show").show();
+    $("#hide").hide();
 });
