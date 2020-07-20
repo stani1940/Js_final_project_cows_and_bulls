@@ -34,3 +34,10 @@ $("#hide").on("click", function() {
     $("#show").show();
     $("#hide").hide();
 });
+// When you click the "Show Rules" button, it shows the rules form and the "Hide Rules" button and hides the "Show Rules" button.
+
+$("#show").on("click",function() {
+    $("#rulesForm").show();
+    $("#show").hide();
+    $("#hide").show();
+});
