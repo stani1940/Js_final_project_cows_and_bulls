@@ -45,3 +45,12 @@ $("#show").on("click",function() {
     $("#show").hide();
     $("#hide").show();
 });
+// When you hit the "Stop playing." button, it clears the results of the game and guess input box, in addition to hiding the game functions and showing the "Start playing!" button.
+
+$("#stop").on('click',function() {
+    $("#game").hide();
+    $("#start").show();
+    $("#results").html("");
+    $("#guess").val("");
+    clicks = 0;
+});
