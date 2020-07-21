@@ -46,6 +46,10 @@ input {
 #guesses{
     background-color: white;
 }
+#history{
+    margin-left: 800px;
+    border: blue solid 1px;
+}
 #footer {
     text-align: right;
 }

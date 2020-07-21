@@ -54,7 +54,7 @@ $("#stop").on('click', function () {
     $("#guess").val("");
     clicks = 0;
 });
-window.game = function() {
+window.game = function () {
 
     // Stores your guess in a variable
 
@@ -71,28 +71,28 @@ window.game = function() {
 
     if (guess !== secret) {
         if (guess.charAt(0) === secret.charAt(0)) {
-            bulls += 1;
+            bulls++;
         } else if (guess.charAt(0) === secret.charAt(1) || guess.charAt(0) === secret.charAt(2) || guess.charAt(0) === secret.charAt(3)) {
-            cows += 1;
+            cows++;
         }
         if (guess.charAt(1) === secret.charAt(1)) {
-            bulls += 1;
+            bulls++;
         } else if (guess.charAt(1) === secret.charAt(0) || guess.charAt(1) === secret.charAt(2) || guess.charAt(1) === secret.charAt(3)) {
-            cows += 1;
+            cows++;
         }
         if (guess.charAt(2) === secret.charAt(2)) {
-            bulls += 1;
+            bulls++;
         } else if (guess.charAt(2) === secret.charAt(0) || guess.charAt(2) === secret.charAt(1) || guess.charAt(2) === secret.charAt(3)) {
-            cows += 1;
+            cows++;
         }
         if (guess.charAt(3) === secret.charAt(3)) {
-            bulls += 1;
+            bulls++;
         } else if (guess.charAt(3) === secret.charAt(0) || guess.charAt(3) === secret.charAt(1) || guess.charAt(3) === secret.charAt(2)) {
-            cows += 1;
+            cows++;
         }
-        $("#results").text("Bulls: " + bulls + " & Cows: " + cows + "").css("background-color","white");
+        $("#results").text("Bulls: " + bulls + " & Cows: " + cows + "").css("background-color", "white");
     } else if (guess === secret) {
-        $("#results").html("Congratulations, you won!").animate({'font-size':'50','margin-top':'100'},2000);
+        $("#results").html("Congratulations, you won!").animate({'font-size': '50', 'margin-top': '100'}, 2000);
         $("#submit").hide();
     }
 }
