@@ -1,19 +1,23 @@
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    height: 100%
+    height: 100%;
 }
 
 body {
     margin: 0 auto;
-    height: 100%
+    height: 100%;
 }
 
 body, h1 , p{
-    font-family: "Raleway", sans-serif
+    font-family: "Raleway", sans-serif;
 }
 
-
+h1{
+    text-align: center;
+    color: white;
+    background-color: crimson;
+}
 .bg-img {
     background-image: url('../images/cows.jpg');
     min-height: 100%;
@@ -23,7 +27,6 @@ body, h1 , p{
 
 input {
     text-align: center;
-    margin: 0 auto;
 }
 
 .title {

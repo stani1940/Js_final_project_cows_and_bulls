@@ -104,6 +104,8 @@ window.game = function () {
         }
         $("#results").text("Bulls: " + bulls + " & Cows: " + cows + "").css("background-color", "white");
     } else if (guess === secret) {
+        const rollSound = new Audio("https://upload.wikimedia.org/wikipedia/commons/4/48/Mudchute_cow_1.ogg");
+        rollSound.play();
         $("#results").html("Congratulations, you won!").animate({'font-size': '50', 'margin-top': '100'}, 2000);
         $("#submit").hide();
     }
