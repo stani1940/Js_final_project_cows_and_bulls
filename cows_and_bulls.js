@@ -59,6 +59,18 @@ window.game = function () {
     // Stores your guess in a variable
 
     let guess = $("#guess").val();
+    validateGuess(guess);
+
+    // Makes sure the number is 4 digits
+    function validateGuess(guess) {
+        if (guess.length !== 4) {
+            alert("This number is too long or short to be valid.");
+        }
+        // Makes sure the numbers are non-repeating if they're 4 digits.
+        else if (guess.charAt(0) === guess.charAt(1) || guess.charAt(0) === guess.charAt(2) || guess.charAt(0) === guess.charAt(3) || guess.charAt(1) === guess.charAt(2) || guess.charAt(1) === guess.charAt(3) || guess.charAt(2) === guess.charAt(3)) {
+            alert("This game doesn't have any repeating digits.");
+        }
+    }
 
     // This is the actual game.
 
