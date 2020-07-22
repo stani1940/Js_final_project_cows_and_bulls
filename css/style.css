@@ -51,7 +51,10 @@ input {
 }
 #history{
     margin-left: 800px;
-    border: blue solid 1px;
+    border: white solid 1px;
+    background-color: crimson;
+    color: white;
+    width: 20%;
 }
 #footer {
     text-align: right;

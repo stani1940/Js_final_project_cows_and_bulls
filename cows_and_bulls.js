@@ -102,11 +102,20 @@ window.game = function () {
         } else if (guess.charAt(3) === secret.charAt(0) || guess.charAt(3) === secret.charAt(1) || guess.charAt(3) === secret.charAt(2)) {
             cows++;
         }
-        $("#results").text("Bulls: " + bulls + " & Cows: " + cows + "").css("background-color", "white");
+        showHistory(guess,bulls,cows);
+       // $("#results").text("Bulls: " + bulls + " & Cows: " + cows + "").css("background-color", "white");
     } else if (guess === secret) {
-        const rollSound = new Audio("https://upload.wikimedia.org/wikipedia/commons/4/48/Mudchute_cow_1.ogg");
-        rollSound.play();
+        playSound();
         $("#results").html("Congratulations, you won!").animate({'font-size': '50', 'margin-top': '100'}, 2000);
         $("#submit").hide();
     }
+}
+function playSound(){
+    const rollSound = new Audio("https://upload.wikimedia.org/wikipedia/commons/4/48/Mudchute_cow_1.ogg");
+    rollSound.play();
+}
+function showHistory(guess,bulls,cows){
+    $("#list").append('<li>:'+ guess +'<p> '+'</p> </li>');
+    $("li p").text("Bulls: " + bulls +" & Cows: " + cows + "");
+    $("#results").text("Bulls: " + bulls + " & Cows: " + cows + "").css("background-color", "white");
 }
