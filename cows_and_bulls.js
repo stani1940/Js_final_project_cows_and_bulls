@@ -16,7 +16,7 @@ function shuffleArray(array) {
 let secret = shuffleArray(numbers).slice(0, 4).join('');
 console.log(secret);
 // This is our click counter that tells you how many times you've guessed in the game.
-
+$("#rulesForm").hide();
 let clicks = 0;
 $("#submit").on("click", function () {
     clicks++;
@@ -52,6 +52,7 @@ $("#stop").on('click', function () {
     $("#start").show();
     $("#results").html("");
     $("#guess").val("");
+    $("#list").html("");
     clicks = 0;
 });
 window.game = function () {
@@ -102,20 +103,21 @@ window.game = function () {
         } else if (guess.charAt(3) === secret.charAt(0) || guess.charAt(3) === secret.charAt(1) || guess.charAt(3) === secret.charAt(2)) {
             cows++;
         }
-        showHistory(guess,bulls,cows);
-       // $("#results").text("Bulls: " + bulls + " & Cows: " + cows + "").css("background-color", "white");
+        showHistory(guess, bulls, cows);
     } else if (guess === secret) {
         playSound();
         $("#results").html("Congratulations, you won!").animate({'font-size': '50', 'margin-top': '100'}, 2000);
         $("#submit").hide();
     }
 }
-function playSound(){
+
+function playSound() {
     const rollSound = new Audio("https://upload.wikimedia.org/wikipedia/commons/4/48/Mudchute_cow_1.ogg");
     rollSound.play();
 }
-function showHistory(guess,bulls,cows){
-    $("#list").append('<li>:'+ guess +'<p> '+'</p> </li>');
-    $("li p").text("Bulls: " + bulls +" & Cows: " + cows + "");
+
+function showHistory(guess, bulls, cows) {
+    $("#list").append('<li>:' + guess + '<p> ' + '</p> </li>');
+    $("li p").text("Bulls: " + bulls + " & Cows: " + cows + "");
     $("#results").text("Bulls: " + bulls + " & Cows: " + cows + "").css("background-color", "white");
 }
