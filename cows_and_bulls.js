@@ -27,6 +27,7 @@ $("#submit").on("click", function () {
 $("#start").on("click", function () {
     $("#game").show();
     $("#start").hide();
+    $('#guess').show();
     $("#submit").show();
     $("#guesses").text("0");
     return secret;
@@ -54,6 +55,9 @@ $("#stop").on('click', function () {
     $("#guess").val("");
     $("#list").html("");
     clicks = 0;
+});
+$("#hint").on("click", function () {
+   $(this).val(secret);
 });
 window.game = function () {
 
