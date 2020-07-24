@@ -19,8 +19,9 @@ console.log(secret);
 $("#rulesForm").hide();
 let clicks = 0;
 $("#submit").on("click", function () {
-    clicks++;
+    clicks++
     $("#guesses").text(clicks);
+    $("#history").css({"display":"block","margin-top":"-350px"});
 });
 //add event of start button
 
@@ -110,7 +111,7 @@ window.game = function () {
         showHistory(guess, bulls, cows);
     } else if (guess === secret) {
         playSound();
-        $("#results").html("Congratulations, you won!").animate({'font-size': '50', 'margin-top': '100'}, 2000);
+        $("#results").html("Congratulations, you won!").animate({'font-size': '40', 'margin-top': '-100'}, 2000);
         $("#submit").hide();
     }
 }

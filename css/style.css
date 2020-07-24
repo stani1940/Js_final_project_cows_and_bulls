@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    margin: 0 auto;
+
     height: 100%;
 }
 
@@ -24,8 +24,24 @@ h1{
     background-position: center;
     background-size: cover;
 }
+#guess,#submit{
+    display: none;
+    margin-left: 25%;
+    margin-top: 1%;
+    width: 30%;
+}
+nav{
+    margin-left: 25%;
 
+}
 input {
+    border-radius: 12px;
+    background-color: #dc143c;
+    color: #fff;
+    height: 50px;
+    border: 2px solid #4CAF50;
+    box-shadow: -3px 3px #ffc11e, 4px 4px #ff5214, -1px 1px #ff5921;
+    cursor: pointer;
     text-align: center;
 }
 
@@ -42,20 +58,32 @@ input {
 }
 
 #rules {
+    width: 75%;
+    background-color: #ff4c33;
     color: white;
     text-align: justify;
-    font-size: 30px;
+    font-size: 20px;
+
 }
-#guesses{
-    background-color: white;
+#guesses,#results,#guess-text {
+    margin-left: 25%;
+    width: 30%;
+    background-color: #fff;
+}
+
+#stop{
+    margin-left: 25%;
+    width: 30%;
 }
 #history{
-    margin-left: 800px;
+    display: none;
+    margin-left: 75%;
     border: white solid 1px;
-    background-color: crimson;
+    background-color: #dc143c;
     color: white;
     width: 20%;
 }
+
 #footer {
     text-align: right;
 }

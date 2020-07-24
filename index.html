@@ -14,7 +14,7 @@
 
 <div class="bg-img">
     <div class="logo">
-        <img src="images/logo.jpg" alt="" width="70px" height= "70px">
+        <img src="images/logo.jpg" alt="" width="70px" height="70px">
     </div>
     <div class="container">
         <h1 class="title">C O W S && B U L L S</h1>
@@ -24,9 +24,11 @@
             <form id="rulesForm">
                 <h2>Rules:</h2>
                 <p>The computer will generate a random 4-digit number without any of them repeating.</p>
-                <p>You will do your best to guess the number in the input field provided. If a digit you entered is not used, you will not get any bulls or cows.
-                    </p>
-                <p>If it's in the correct spot, then you'll get 1 bull. If it's in the wrong spot, it will be a cow. </p>
+                <p>You will do your best to guess the number in the input field provided.</p>
+                <p> If a digit you entered is not used, you will not get any bulls or cows.
+                </p>
+                <p>If it's in the correct spot, then you'll get 1 bull. If it's in the wrong spot, it will be a
+                    cow. </p>
                 <p>The game ends when you guess the number.</p>
                 <p>The amount of guesses it takes for you to figure it out will be provided.</p>
             </form>
@@ -40,16 +42,17 @@
         </nav>
         <!--closes rules-->
         <div id="game">
-            <div id="history">History of attempts
-                <ol id="list"></ol>
-            </div>
             <input type="number" id="guess" placeholder="Your Guess">
             <input type="button" id="submit" value="Submit your guess." onclick="game()">
             <p id="guess-text">Guesses:</p>
             <p id="guesses"></p>
             <p id="results"></p>
             <input type="button" id="stop" value="Stop playing!">
+
         </div>
+    </div>
+    <div id="history">History of attempts
+        <ol id="list"></ol>
     </div>
 
 </div>
