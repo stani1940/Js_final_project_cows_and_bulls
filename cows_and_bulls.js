@@ -19,9 +19,9 @@ console.log(secret);
 $("#rulesForm").hide();
 let clicks = 0;
 $("#submit").on("click", function () {
-    clicks++
+    clicks++;
     $("#guesses").text(clicks);
-    $("#history").css({"display":"block","margin-top":"-350px"});
+    $("#history").css({"display": "block", "margin-top": "-350px"});
 });
 //add event of start button
 
@@ -58,24 +58,38 @@ $("#stop").on('click', function () {
     clicks = 0;
 });
 $("#hint").on("click", function () {
-   $(this).val(secret);
+    $(this).val(secret);
 });
 window.game = function () {
 
     // Stores your guess in a variable
 
     let guess = $("#guess").val();
-    validateGuess(guess);
+    //validateGuess(guess);
 
     // Makes sure the number is 4 digits
     function validateGuess(guess) {
-        if (guess.length !== 4) {
+        if (!onlyDigits(guess)) {
+            alert("The number must contains digits in range 0,9 ");
+            return false;
+        } else if (guess.length !== 4) {
             alert("This number is too long or short to be valid.");
+            return false;
         }
         // Makes sure the numbers are non-repeating if they're 4 digits.
         else if (guess.charAt(0) === guess.charAt(1) || guess.charAt(0) === guess.charAt(2) || guess.charAt(0) === guess.charAt(3) || guess.charAt(1) === guess.charAt(2) || guess.charAt(1) === guess.charAt(3) || guess.charAt(2) === guess.charAt(3)) {
             alert("This game doesn't have any repeating digits.");
+            return false;
         }
+        return true;
+    }
+
+    function onlyDigits(guess) {
+        for (let i = guess.length - 1; i >= 0; i--) {
+            const digit = guess.charCodeAt(i);
+            if (digit < 48 || digit > 57) return false
+        }
+        return true
     }
 
     // This is the actual game.
@@ -86,33 +100,34 @@ window.game = function () {
     let cows = 0;
 
     // This is where JavaScript checks the bulls and cows and adds them up accordingly.
-
-    if (guess !== secret) {
-        if (guess.charAt(0) === secret.charAt(0)) {
-            bulls++;
-        } else if (guess.charAt(0) === secret.charAt(1) || guess.charAt(0) === secret.charAt(2) || guess.charAt(0) === secret.charAt(3)) {
-            cows++;
+    if (validateGuess(guess)) {
+        if (guess !== secret) {
+            if (guess.charAt(0) === secret.charAt(0)) {
+                bulls++;
+            } else if (guess.charAt(0) === secret.charAt(1) || guess.charAt(0) === secret.charAt(2) || guess.charAt(0) === secret.charAt(3)) {
+                cows++;
+            }
+            if (guess.charAt(1) === secret.charAt(1)) {
+                bulls++;
+            } else if (guess.charAt(1) === secret.charAt(0) || guess.charAt(1) === secret.charAt(2) || guess.charAt(1) === secret.charAt(3)) {
+                cows++;
+            }
+            if (guess.charAt(2) === secret.charAt(2)) {
+                bulls++;
+            } else if (guess.charAt(2) === secret.charAt(0) || guess.charAt(2) === secret.charAt(1) || guess.charAt(2) === secret.charAt(3)) {
+                cows++;
+            }
+            if (guess.charAt(3) === secret.charAt(3)) {
+                bulls++;
+            } else if (guess.charAt(3) === secret.charAt(0) || guess.charAt(3) === secret.charAt(1) || guess.charAt(3) === secret.charAt(2)) {
+                cows++;
+            }
+            showHistory(guess, bulls, cows);
+        } else if (guess === secret) {
+            playSound();
+            $("#results").html("Congratulations, you won!").animate({'font-size': '40', 'margin-top': '-100'}, 2000);
+            $("#submit").hide();
         }
-        if (guess.charAt(1) === secret.charAt(1)) {
-            bulls++;
-        } else if (guess.charAt(1) === secret.charAt(0) || guess.charAt(1) === secret.charAt(2) || guess.charAt(1) === secret.charAt(3)) {
-            cows++;
-        }
-        if (guess.charAt(2) === secret.charAt(2)) {
-            bulls++;
-        } else if (guess.charAt(2) === secret.charAt(0) || guess.charAt(2) === secret.charAt(1) || guess.charAt(2) === secret.charAt(3)) {
-            cows++;
-        }
-        if (guess.charAt(3) === secret.charAt(3)) {
-            bulls++;
-        } else if (guess.charAt(3) === secret.charAt(0) || guess.charAt(3) === secret.charAt(1) || guess.charAt(3) === secret.charAt(2)) {
-            cows++;
-        }
-        showHistory(guess, bulls, cows);
-    } else if (guess === secret) {
-        playSound();
-        $("#results").html("Congratulations, you won!").animate({'font-size': '40', 'margin-top': '-100'}, 2000);
-        $("#submit").hide();
     }
 }
 
